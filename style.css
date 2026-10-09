@@ -97,12 +97,14 @@ body::before {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 14vw, 6.5rem);
-    line-height: 1;
+    font-size: clamp(1.5rem, 9.5vw, 6rem);
+    line-height: 1.25;
+    text-align: center;
+    text-transform: uppercase;
     color: var(--pink);
     text-shadow:
-        4px 4px 0 var(--blue),
-        8px 8px 0 var(--purple);
+        0.05em 0.05em 0 var(--blue),
+        0.1em 0.1em 0 var(--purple);
 }
 
 /* pixel START-style button */
