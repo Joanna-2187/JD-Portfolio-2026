@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* === PALETTE (edit colors here) === */
+/* === PALETTE === */
 :root {
     --ink:         #0a0510;   /* near-black for text on bright fills */
     --bg:          #05030d;   /* page background, slightly purple */
@@ -66,7 +66,7 @@ body::before {
     z-index: 999;
 }
 
-/* === HERO HEADER === */
+/* === HEADER === */
 .hero {
     max-width: 960px;
     margin: 20px auto 28px;
@@ -107,7 +107,7 @@ body::before {
         0.1em 0.1em 0 var(--purple);
 }
 
-/* pixel START-style button */
+/* Pixel START-style button (Fully AI GEN SECTION)*/
 .hero-pill {
     position: relative;
     isolation: isolate;
@@ -229,7 +229,7 @@ section[id],
 
 .console-main { min-width: 0; }
 
-/* --- desktop icons --- */
+/* --- Desktop icons --- */
 .icon-col {
     display: flex;
     flex-direction: column;
@@ -260,8 +260,8 @@ section[id],
     outline: none;
 }
 
-/* green light = this window is open */
-.icon.open::after {
+/* Green light = this window is open */
+.icon.open::after {  
     content: "";
     position: absolute;
     bottom: 4px;
@@ -460,7 +460,7 @@ footer {
 .menu-bar {
     width: min(920px, calc(100% - 40px));
     margin: 0 auto 40px;
-    padding: 10px 14px;
+    padding: 2px 14px 19px;   /* was 10px 14px */
     background: var(--purple-deep);
     border: 4px solid var(--blue);
     box-shadow: 4px 4px 0 var(--purple);
@@ -471,7 +471,7 @@ footer {
     align-items: center;
     gap: 14px;
     font-family: inherit;
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: var(--pink);
     background: none;
     border: none;
@@ -560,7 +560,7 @@ body.menu-open .side-menu {
     padding: 24px 16px;
 }
 
-/* the 0s and 1s */
+/* 0s and 1s */
 .bits {
     position: absolute;
     inset: 0;
@@ -576,7 +576,7 @@ body.menu-open .side-menu {
 }
 
 .side-links {
-    position: relative;      /* sits above the bits */
+    position: relative;     
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -853,8 +853,32 @@ body.menu-open .side-menu {
     letter-spacing: 2px;
     color: var(--lavender);
 }
+/* === CONTACTS WINDOW === */
+.contact-window .app-bar { background: var(--green); }
+.contact-window .app-bar .win-btn { color: var(--green); }
 
-/* === MOBILE === */
+.contact-window .card { min-height: 0; }
+.contact-window .card h3 { overflow-wrap: anywhere; }
+
+/* mail icon for the desktop */
+.art-mail {
+    position: relative;
+    width: 52px;
+    height: 38px;
+    margin: 8px 0;
+    background: var(--green-light);
+    border: 4px solid var(--green);
+}
+
+.art-mail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--green-dark);
+    clip-path: polygon(0 0, 14% 0, 50% 58%, 86% 0, 100% 0, 100% 24%, 50% 84%, 0 24%);
+}
+
+/* === MOBILE (FULL AI GEN) === */
 @media (max-width: 700px) {
     .artifact-grid { grid-template-columns: 1fr; }
     .app-body { padding: 16px; }
@@ -879,7 +903,7 @@ body.menu-open .side-menu {
     }
 }
 
-/* === REDUCED MOTION (keep last) === */
+/* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .side-menu, .menu-backdrop, .side-links a { transition: none; }

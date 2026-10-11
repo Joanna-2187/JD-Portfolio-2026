@@ -10,7 +10,7 @@
 <body class="retro">
 
 <!-- ===========================
-            HERO HEADER
+            HEADER
 =========================== -->
 <header class="hero">
     <div class="hud">
@@ -56,6 +56,7 @@
             <li><a href="#console">CONSOLE</a></li>
             <li><a href="#artifacts">ARTIFACTS</a></li>
             <li><a href="#fun">FUN STUFF</a></li>
+            <li><a href="#contacts">CONTACTS</a></li>
         </ul>
     </div>
 </aside>
@@ -90,6 +91,11 @@
                     <button class="icon" type="button" data-open="stuff">
                         <span class="icon-art art-disc" aria-hidden="true"></span>
                         <span class="icon-label">FUN STUFF</span>
+                    </button>
+
+                    <button class="icon" type="button" data-open="contacts">
+                        <span class="icon-art art-mail" aria-hidden="true"></span>
+                        <span class="icon-label">CONTACTS</span>
                     </button>
                 </div>
 
@@ -146,21 +152,21 @@
                     <article class="card">
                         <span class="number">01</span>
                         <h3>Portfolio Website</h3>
-                        <p>This website is my first artifact, built with HTML, CSS, and JavaScript.</p>
+                        <p>This website is my first artifact, built with HTML, CSS, and JavaScript. </p>
                         <a href="#" class="button">View Artifact</a>
                     </article>
 
                     <article class="card">
                         <span class="number">02</span>
-                        <h3>Artifact 2 — Idea</h3>
-                        <p>A project I might build to solve a useful problem or make something easier for people.</p>
+                        <h3>OneNote Code Plugin</h3>
+                        <p>Allows users to write code in multiple languages within OneNote.</p>
                         <a class="button" aria-disabled="true" tabindex="-1">Coming Soon</a>
                     </article>
 
                     <article class="card">
                         <span class="number">03</span>
-                        <h3>Artifact 3 — Idea</h3>
-                        <p>An idea for a tool, website, or interactive project that I would like to explore.</p>
+                        <h3>Question Corner(Revamp)</h3>
+                        <p>An idea for an in-class tool for students + teachers using gen. AI</p>
                         <a class="button" aria-disabled="true" tabindex="-1">Coming Soon</a>
                     </article>
 
@@ -173,8 +179,8 @@
 
                     <article class="card">
                         <span class="number">05</span>
-                        <h3>Artifact 5 — Idea</h3>
-                        <p>A final project idea that I can develop further as the quarter progresses.</p>
+                        <h3>ASL Practice</h3>
+                        <p>A web application to help users learn + practice American Sign Language (ASL).</p>
                         <a class="button" aria-disabled="true" tabindex="-1">Coming Soon</a>
                     </article>
 
@@ -254,6 +260,53 @@
         </div>
     </section>
 
+    <!-- ===== CONTACTS SECTION ===== -->
+    <section id="contacts">
+        <div class="app-window contact-window" data-win="contacts" data-name="CONTACTS V 1.0">
+
+            <div class="app-bar">
+                <span class="app-title">CONTACTS V 1.0</span>
+
+                <div class="win-controls">
+                    <button class="win-btn" type="button" data-min
+                            aria-expanded="true" aria-label="Minimize CONTACTS V 1.0">_</button>
+                    <button class="win-btn" type="button" data-close
+                            aria-label="Close CONTACTS V 1.0">X</button>
+                </div>
+            </div>
+
+            <div class="app-body" data-body>
+                <div class="artifact-grid">
+
+                    <article class="card">
+                        <span class="number">EMAIL</span>
+                        <h3>Say hello</h3>
+                        <p>The best way to reach me about projects or opportunities.</p>
+                        <a href="mailto:Joanna_Duran003@hotmail.com" class="button">Send Email</a>
+                    </article>
+
+                    <article class="card">
+                        <span class="number">GITHUB</span>
+                        <h3>My code</h3>
+                        <p>This site and my other projects live here.</p>
+                        <a href="https://github.com/Joanna-2187" class="button"
+                           target="_blank" rel="noopener noreferrer">View Profile</a>
+                    </article>
+
+                    <article class="card">
+                        <span class="number">LINKEDIN</span>
+                        <h3>Let's connect</h3>
+                        <p>My student profile and work history.</p>
+                        <a href="www.linkedin.com/in/joanna-duran2187" class="button"
+                           target="_blank" rel="noopener noreferrer">View Profile</a>
+                    </article>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 </main>
 
 <!-- ===========================
@@ -277,7 +330,6 @@
     const bits     = document.getElementById('bits');
     if (!btn || !closeBtn || !backdrop || !menu) return;
 
-    // fill the sidebar background with 0s and 1s
     if (bits) {
         let s = '';
         for (let i = 0; i < 6000; i++) s += Math.random() < 0.5 ? '0' : '1';
@@ -312,7 +364,7 @@
 })();
 </script>
 
-<!-- 2. WINDOWS + DESKTOP ICONS (minimize, close, reopen) -->
+<!-- WINDOWS + DESKTOP ICONS -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const wins   = Array.from(document.querySelectorAll('[data-win]'));
@@ -339,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
             (minimized ? 'Restore ' : 'Minimize ') + w.dataset.name);
     }
 
-    // green light under an icon while its window is open
+    // Green light under an icon while its window is open
     function refreshIcons() {
         icons.forEach(function (i) {
             const w = byId[i.dataset.open];
@@ -376,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // desktop icons reopen a window and jump to it
+    // Desktop icons reopen a window and jump to it
     icons.forEach(function (i) {
         i.addEventListener('click', function () {
             const w = byId[i.dataset.open];
@@ -388,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // menu links and the PORTFOLIO pill reopen anything closed in that section
+    // Menu links and the Portfolio button reopen anything closed in section
     document.addEventListener('click', function (e) {
         const a = e.target.closest('a[href^="#"]');
         if (!a || a.getAttribute('href').length < 2) return;
@@ -403,13 +455,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<!-- 3. JUKEBOX -->
+<!-- JUKEBOX -->
 <script>
 (function () {
-    // Swap these for your own 70s / 80s pop playlists
     const PLAYLISTS = {
-        '70s': 'spotify:playlist:494pdFyrv128wzE3q6Hgfw',
-        '80s': 'spotify:playlist:6qgZMOSDkdwF47KWyPA1Pa'
+        '70s': 'spotify:playlist:5KmBulox9POMt9hOt3VV1x',
+        '80s': 'spotify:playlist:37i9dQZF1DXb57FjYWz00c'
     };
 
     const vinyl   = document.getElementById('vinyl');
@@ -428,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function () {
             { uri: PLAYLISTS['70s'], width: '100%', height: 352 },
             function (c) {
                 controller = c;
-                window.jukebox = c;          // lets the Fun Stuff X button pause the music
+                window.jukebox = c;          
                 playBtn.disabled = false;
                 rewBtn.disabled = false;
 
@@ -463,7 +514,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 
-<!-- 4. CLOCK (Pacific time) -->
+<!--  CLOCK (PST) -->
 <script>
 (function () {
     const TZ = 'America/Los_Angeles';
@@ -495,7 +546,7 @@ document.addEventListener('DOMContentLoaded', function () {
         timeZoneName: 'short'
     });
 
-    // current time in Pacific, no matter where the visitor is
+    // 
     function pacificNow() {
         const parts = fmt.formatToParts(new Date());
         const get = function (type) {
@@ -509,7 +560,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    // flicker through random numbers, then land on the real one
+    // Flicker through random numbers, then land on the real one
     function roll(key, finalChar) {
         const el = d[key];
         clearInterval(timers[key]);
